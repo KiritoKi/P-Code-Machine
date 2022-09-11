@@ -4,7 +4,6 @@
 
 const int amax = 2047; // maximum address
 const int levmax = 3;  // maximun depth of block nesting
-const int cmax = 200;  // size of code array
 
 #define C_MAX_INSTRUCTIONS 200 // Max Size of Code Array
 // List of instructions
@@ -54,8 +53,6 @@ int main()
 	stack[0] = 0;
 	stack[1] = 0;
 	stack[2] = 0;
-
-	program = program + 1;
 
 	printf("Please enter the instructions (Instruction END 0 0 to stopstack the input)\n");
 
@@ -125,6 +122,7 @@ int getInstructionCode(char *code)
 void execute()
 {
 	instructionSTRUCT instructionCurrent = instructions[program]; // Stores the Current instruction
+
 	program++;
 	switch (instructionCurrent.operation)
 	{
@@ -229,6 +227,8 @@ void execute()
 	// PrintTrace
 	printf("%-10s %-15d %-15d %-15d %-15d ", getInstructionName(instructionCurrent.operation), instructionCurrent.level, instructionCurrent.argument, stack[topstack], program);
 
+	for (int aux = base; aux < topstack + 1; aux++)
+		printf("%d ", stack[aux]);
 	printf("\n");
 }
 
