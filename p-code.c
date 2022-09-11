@@ -34,7 +34,7 @@ instructionSTRUCT instructions[C_MAX_INSTRUCTIONS];
 #define stacksize 500
 
 int program = 0, base = 1, topstack = 0; // pointer//Base-Register//topstack-register
-int exeCont = 0;
+
 // DATASTORE
 int stack[stacksize] = {-1};
 
@@ -89,8 +89,10 @@ int main()
 	}
 	printf("\n...Starting the P-code...\n");
 	printf("%-10s %-15s %-15s %-15s %-15s %s\n", "Inst", "Level", "Arg", "topstack", "program", "Stack");
-	while (program < totalInstructions)
+	do
+	{
 		execute();
+	} while (program != 0);
 
 	return 0;
 }
