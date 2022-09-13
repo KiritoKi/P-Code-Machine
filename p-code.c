@@ -215,12 +215,12 @@ void execute()
 		topstack += instructionCurrent.argument;
 		break;
 	case JMP:
-		program = instructionCurrent.argument - 1;
+		program = instructionCurrent.argument;
 		break;
 	case JPC:
 		if (stack[topstack] == 0)
 		{
-			program = instructionCurrent.argument - 1;
+			program = instructionCurrent.argument;
 		}
 		topstack--;
 		break;
