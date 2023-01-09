@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> 
 
 const int amax = 2047; // maximum address
 const int levmax = 3;  // maximun depth of block nesting
